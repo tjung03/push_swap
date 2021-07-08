@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjung <tjung@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/07 19:03:04 by tjung             #+#    #+#             */
-/*   Updated: 2021/07/07 19:10:16 by tjung            ###   ########.fr       */
+/*   Created: 2021/07/07 18:37:12 by tjung             #+#    #+#             */
+/*   Updated: 2021/07/09 01:36:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	**ft_split(char const *s)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char	**split;
+	unsigned char	*dest;
+	size_t			i;
 
-	return (split);
+	dest = (unsigned char *)b;
+	i = 0;
+	while (i < len)
+		dest[i++] = c;
+	return (b);
 }

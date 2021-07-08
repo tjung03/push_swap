@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lst_size.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tjung <tjung@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/07 18:37:12 by tjung             #+#    #+#             */
-/*   Updated: 2021/07/07 18:39:02 by tjung            ###   ########.fr       */
+/*   Created: 2021/07/08 18:46:01 by marvin            #+#    #+#             */
+/*   Updated: 2021/07/09 01:36:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+int	ft_lst_size(t_list *lst)
 {
-	unsigned char	*dest;
-	size_t			i;
+	t_list	*curr;
+	t_list	*next;
+	int		size;
 
-	dest = (unsigned char *)b;
-	i = 0;
-	while (i < len)
-		dest[i++] = c;
-	return (b);
+	size = 0;
+	curr = lst;
+	while (curr != NULL)
+	{
+		size++;
+		next = curr->next;
+		curr = next;
+	}
+	return (size);
 }
