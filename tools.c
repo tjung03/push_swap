@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pw_atoi.c                                       :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/08 17:42:18 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/09 18:47:24 by marvin           ###   ########.fr       */
+/*   Created: 2021/07/09 19:18:59 by marvin            #+#    #+#             */
+/*   Updated: 2021/07/09 19:19:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long long	ft_pw_atoi(char *s)
+int	print_error(int ret, char *str)
 {
-	long long	num;
-	int	i;
+	if (ret == 1)
+		write(1, str, ft_strlen(str));
+	return (ret);
+}
 
-	num = 0;
-	i = 0;
-	if (s[0] == '-' || s[0] == '+')
-		i++;
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		num = num * 10 + (s[i] - 48);
-		i++;
-	}
-	if (s[0] == '-')
-		num *= -1;
-	return (num);
+int	free_list(int ret, t_list *main, t_list *sub)
+{
+	ft_lst_clear(main);
+	ft_lst_clear(sub);
+	return (print_error(ret, "Error\n"));
 }

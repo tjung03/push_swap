@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pw_atoi.c                                       :+:      :+:    :+:   */
+/*   parsing_tools.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/08 17:42:18 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/09 18:47:24 by marvin           ###   ########.fr       */
+/*   Created: 2021/07/09 19:17:16 by marvin            #+#    #+#             */
+/*   Updated: 2021/07/09 19:18:37 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long long	ft_pw_atoi(char *s)
+int	check_env(char *av)
 {
-	long long	num;
 	int	i;
 
-	num = 0;
 	i = 0;
-	if (s[0] == '-' || s[0] == '+')
-		i++;
-	while (s[i] >= '0' && s[i] <= '9')
+	while (av[i])
 	{
-		num = num * 10 + (s[i] - 48);
+		if (av[i] < 48 && av[i] > 57)
+			return (1);
 		i++;
 	}
-	if (s[0] == '-')
-		num *= -1;
-	return (num);
+	return (0);
+}
+
+int	free_split(int ret, char **split)
+{
+	int	i;
+
+	i = -1;
+	if (split)
+	{
+		while (split[++i])
+			free(split[i]);
+		free(split);
+	}
+	return (ret);
 }
