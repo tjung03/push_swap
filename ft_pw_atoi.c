@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-// 미완 음수 등의 부호문제
 long long	ft_pw_atoi(char *s)
 {
 	long long	num;
