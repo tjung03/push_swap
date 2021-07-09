@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 15:35:02 by tjung             #+#    #+#             */
-/*   Updated: 2021/07/09 19:18:16 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/10 02:29:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,18 @@ typedef struct s_list {
 	struct s_list	*prev;
 }	t_list;
 
-typedef struct s_conditions {
-	struct s_list	*a_top;
-	struct s_list	*a_bottom;
-	struct s_list	*b_top;
-	struct s_list	*b_bottom;
-}	t_conditions;
+typedef struct s_locate {
+	struct s_list	*top;
+	struct s_list	*bottom;
+}	t_locate;
+
+typedef struct	s_global {
+	struct s_list	*stack_a;
+	struct s_list	*stack_b;
+	struct s_locate	loc_a;
+	struct s_locate	loc_b;
+}	t_global;
+
 
 /*
  *			ft_functions
@@ -63,7 +69,31 @@ int			free_split(int ret, char **split);
 /*
  *			tools.c
  */
+void		stack_location(t_list *stack, t_locate *loc);
 int			print_error(int ret, char *str);
 int			free_list(int ret, t_list *main, t_list *sub);
+
+/*
+ *			func_swap.c
+ */
+void    	swap_stack(t_locate *loc, char stack);
+void    	swap_both_stack(t_global *g, char stack);
+
+/*
+ *			func_push.c
+ */
+void		push_stack_a(t_global *g);
+void		push_stack_b(t_global *g);
+
+
+/*
+ *			func_rotate.c
+ */
+
+
+/*
+ *			func_reverse_rotate.c
+ */
+
 
 #endif
