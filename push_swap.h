@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 15:35:02 by tjung             #+#    #+#             */
-/*   Updated: 2021/07/10 02:29:23 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/10 07:15:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,13 @@ void		push_stack_b(t_global *g);
 /*
  *			func_rotate.c
  */
-
+void		rotate_stack(t_list **stack, t_locate *loc, char kind);
+void		rotate_both_stack(t_global *g, char kind);
 
 /*
  *			func_reverse_rotate.c
  */
-
+void		reverse_rotate_stack(t_list **stack, t_locate *loc, char kind);
+void		reverse_rotate_both_stack(t_global *g, char kind);
 
 #endif

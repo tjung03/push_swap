@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 19:42:30 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/10 03:47:43 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/10 07:23:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,4 @@ void	push_stack_b(t_global *g)
 		}
 		write(1, "pb\n", 3);
 	}
-	/*
-	int	size = ft_lst_size(g->stack_b);
-	t_list *curr = ft_lst_last(g->stack_b);
-	for (int i = 0; i < size; i++)
-	{
-		printf("%d ", curr->data);
-		curr = curr->prev;
-	}
-	printf("\n");*/
 }

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:39:46 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/10 04:11:12 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/10 07:19:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,52 +76,28 @@ int	main(int ac, char **av)
 		stack_location(g.stack_a, &g.loc_a);
 		// algorithms
 
-		// test start
+		/*// test start
 		test(&g);
-		printf("===start===\n\n");
-		swap_stack(&g.loc_a, 'a');
-		test(&g);
-		push_stack_b(&g);
-		test(&g);
-		push_stack_b(&g);
-		test(&g);
-		push_stack_b(&g);
-		test(&g);
-		push_stack_b(&g);
-		test(&g);
-		swap_stack(&g.loc_a, 'a');
-		test(&g);
-		swap_stack(&g.loc_b, 'b');
-		test(&g);
-		swap_both_stack(&g, 's');
-		test(&g);
-		push_stack_b(&g);
-		push_stack_b(&g);
+		printf("========start========\n\n");
 		push_stack_b(&g);
 		push_stack_b(&g);
 		push_stack_b(&g);
 		push_stack_b(&g);
 		push_stack_b(&g);
 		test(&g);
-		push_stack_a(&g);
-		push_stack_a(&g);
-		push_stack_a(&g);
-		push_stack_a(&g);
+		reverse_rotate_stack(&g.stack_a, &g.loc_a, 'a');
+		reverse_rotate_stack(&g.stack_b, &g.loc_b, 'b');
 		test(&g);
-		swap_stack(&g.loc_a, 'a');
+		reverse_rotate_stack(&g.stack_a, &g.loc_a, 'a');
+		reverse_rotate_stack(&g.stack_a, &g.loc_a, 'a');
+		reverse_rotate_stack(&g.stack_a, &g.loc_a, 'a');
 		test(&g);
-		swap_stack(&g.loc_b, 'b');
+		reverse_rotate_stack(&g.stack_b, &g.loc_b, 'b');
+		reverse_rotate_stack(&g.stack_b, &g.loc_b, 'b');
+		reverse_rotate_stack(&g.stack_b, &g.loc_b, 'b');
 		test(&g);
-		swap_both_stack(&g, 's');
-		test(&g);
-		push_stack_a(&g);
-		push_stack_a(&g);
-		push_stack_a(&g);
-		push_stack_a(&g);
-		push_stack_a(&g);
-		push_stack_a(&g);
-		push_stack_a(&g);
-		test(&g);
+		reverse_rotate_both_stack(&g, 'r');
+		test(&g);*/
 	}
 	return (free_list(0, g.stack_a, g.stack_b));
 }
