@@ -6,13 +6,21 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 19:42:30 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/10 07:16:40 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/14 05:36:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	reverse_rotate_both_stack(t_global *g, char kind)
+static void	print_reverse_rotate_kind(char kind)
+{
+	if (kind == 'a')
+		write(1, "rra\n", 4);
+	else if (kind == 'b')
+		write(1, "rrb\n", 4);
+}
+
+void		reverse_rotate_both_stack(t_global *g, char kind)
 {
 	reverse_rotate_stack(&g->stack_a, &g->loc_a, kind);
 	reverse_rotate_stack(&g->stack_b, &g->loc_b, kind);
@@ -20,7 +28,7 @@ void	reverse_rotate_both_stack(t_global *g, char kind)
 		write(1, "rrr\n", 4);
 }
 
-void	reverse_rotate_stack(t_list **stack, t_locate *loc, char kind)
+void		reverse_rotate_stack(t_list **stack, t_locate *loc, char kind)
 {
 	t_list	*above;
 	t_list	*below;
@@ -40,9 +48,6 @@ void	reverse_rotate_stack(t_list **stack, t_locate *loc, char kind)
 		*stack = temp;
 		loc->bottom = *stack;
 		loc->top = below;
-		if (kind == 'a')
-			write(1, "rra\n", 4);
-		else if (kind == 'b')
-			write(1, "rrb\n", 4);
+		print_reverse_rotate_kind(kind);
 	}
 }

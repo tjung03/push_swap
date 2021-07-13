@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:39:46 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/10 07:19:17 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/13 23:29:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,29 +75,12 @@ int	main(int ac, char **av)
 			return (free_list(1, g.stack_a, g.stack_b));
 		stack_location(g.stack_a, &g.loc_a);
 		// algorithms
+		test(&g);
+		sort_ascending(&g);
+		test(&g);
 
-		/*// test start
-		test(&g);
-		printf("========start========\n\n");
-		push_stack_b(&g);
-		push_stack_b(&g);
-		push_stack_b(&g);
-		push_stack_b(&g);
-		push_stack_b(&g);
-		test(&g);
-		reverse_rotate_stack(&g.stack_a, &g.loc_a, 'a');
-		reverse_rotate_stack(&g.stack_b, &g.loc_b, 'b');
-		test(&g);
-		reverse_rotate_stack(&g.stack_a, &g.loc_a, 'a');
-		reverse_rotate_stack(&g.stack_a, &g.loc_a, 'a');
-		reverse_rotate_stack(&g.stack_a, &g.loc_a, 'a');
-		test(&g);
-		reverse_rotate_stack(&g.stack_b, &g.loc_b, 'b');
-		reverse_rotate_stack(&g.stack_b, &g.loc_b, 'b');
-		reverse_rotate_stack(&g.stack_b, &g.loc_b, 'b');
-		test(&g);
-		reverse_rotate_both_stack(&g, 'r');
-		test(&g);*/
+		// test start
+		printf("%d\n", check_ascending(&g));
 	}
 	return (free_list(0, g.stack_a, g.stack_b));
 }

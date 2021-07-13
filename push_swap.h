@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 15:35:02 by tjung             #+#    #+#             */
-/*   Updated: 2021/07/10 07:15:26 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/14 05:30:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,18 @@ int			print_error(int ret, char *str);
 int			free_list(int ret, t_list *main, t_list *sub);
 
 /*
+ *			calculation_tools.c
+ */
+int			what_min_idx(t_locate *loc);
+int			what_max_idx(t_locate *loc);
+int			top_is_min(t_global *g);
+int			top_is_max(t_global *g);
+
+/*
  *			func_swap.c
  */
-void    	swap_stack(t_locate *loc, char stack);
-void    	swap_both_stack(t_global *g, char stack);
+void		swap_stack(t_list **stack, t_locate *loc, char kind);
+void    	swap_both_stack(t_global *g, char kind);
 
 /*
  *			func_push.c
@@ -97,5 +105,36 @@ void		rotate_both_stack(t_global *g, char kind);
  */
 void		reverse_rotate_stack(t_list **stack, t_locate *loc, char kind);
 void		reverse_rotate_both_stack(t_global *g, char kind);
+
+/*
+ *			check_ascending.c
+ */
+int			check_ascending(t_global *g);
+
+/*
+ *			sort_stack.c
+ */
+void		sort_ascending(t_global *g);
+
+/*
+ *			sort_not_more_than_five.c
+ */
+void		sort_not_more_than_five(int size, t_global *g);
+
+/*
+ *			sort_five_details.c
+ */
+void		top_isnt_min_in_three(t_global *g);
+void		raise_one_to_top_in_five(t_global *g, int idx);
+
+/*
+ *			sort_not_more_than_hundred.c
+ */
+void		sort_not_more_than_hundred(t_global *g);
+
+/*
+ *			sort_more_than_hundred.c
+ */
+void		sort_more_than_hundred(t_global *g);
 
 #endif

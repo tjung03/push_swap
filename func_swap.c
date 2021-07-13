@@ -6,21 +6,29 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 19:42:30 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/10 06:38:24 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/14 05:34:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_both_stack(t_global *g, char stack)
+static void	print_swap_kind(char kind)
 {
-	swap_stack(&g->loc_a, stack);
-	swap_stack(&g->loc_b, stack);
-	if (stack == 's')
+	if (kind == 'a')
+		write(1, "sa\n", 3);
+	else if (kind == 'b')
+		write(1, "sb\n", 3);
+}
+
+void		swap_both_stack(t_global *g, char kind)
+{
+	swap_stack(&g->stack_a, &g->loc_a, kind);
+	swap_stack(&g->stack_b, &g->loc_b, kind);
+	if (kind == 's')
 		write(1, "ss\n", 3);
 }
 
-void	swap_stack(t_locate *loc, char stack)
+void		swap_stack(t_list **stack, t_locate *loc, char kind)
 {
 	t_list	*first;
 	t_list	*second;
@@ -37,11 +45,14 @@ void	swap_stack(t_locate *loc, char stack)
 		first->prev = third;
 		second->next = NULL;
 		second->prev = first;
-		third->next = first;
+		if (third)
+			third->next = first;
+		if (size == 2)
+		{
+			*stack = first;
+			loc->bottom = *stack;
+		}
 		loc->top = second;
-		if (stack == 'a')
-			write(1, "sa\n", 3);
-		else if (stack == 'b')
-			write(1, "sb\n", 3);
+		print_swap_kind(kind);
 	}
 }
