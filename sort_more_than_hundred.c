@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 05:30:08 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/14 23:45:26 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/15 02:26:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 void	sort_more_than_hundred(t_global *g)
 {
-	t_list *curr;
-	
-	curr = g->stack_a;
-	while (curr)
-		curr = curr->next;
-	return ;
+	int	chunks[12];
+	int	size;
+
+	size = ft_lst_size(g->stack_a);
+	if (divide_chunks(g, chunks, size, 11))
+	{
+		
+	}
 }

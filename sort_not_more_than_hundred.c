@@ -6,66 +6,83 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 19:01:15 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/15 02:14:08 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/15 03:50:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	create_corresponding_array(t_global *g, int *arr)
+int		find_if_chunk(t_global *g, int *chunks, int level)
 {
 	t_list	*curr;
-	int		i;
-	int		j;
-	int		temp;
 
-	curr = g->stack_a;
-	i = 0;
+	curr = (g->loc_a).top;
 	while (curr)
 	{
-		arr[i++] = curr->data;
-		curr = curr->next;
-	}
-	while (i--)
-	{
-		j = -1;
-		while (++j < i)
+		if (level == 1)
 		{
-			if (arr[j] > arr[j + 1])
-			{
-				temp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = temp;
-			}
+			if (curr->data == chunks[0])
+				return (1);
 		}
+		if (curr->data > chunks[level - 1] && curr->data <= chunks[level])
+			return (1);
+		curr = curr->prev;
 	}
+	return (0);
 }
 
-int			divide_chunks(t_global *g, int *chunks, int zone)
+int		get_distance(t_global *g, int *chunks, int level)
 {
-	int	*arr;
-	int	size;
-	int	i;
+	t_list	*curr;
+	int		cnt;
 
-	size = ft_lst_size(g->stack_a);
-	arr = (int *)malloc(sizeof(int) * size);
-	if (!arr)
-		return (0);
-	create_corresponding_array(g, arr);
-	i = 0;
-	while (++i < zone)
-		chunks[i] = size * i / zone;
-	chunks[0] = arr[0];
-	chunks[zone] = arr[size - 1];
-	i = 0;
-	while (++i < zone)
-		chunks[i] = arr[(chunks[i] - 1)];
-	return (1);
+	curr = (g->loc_a).top;
+	cnt = 1;
+	while (curr)
+	{
+		if (level == 1)
+		{
+			if (curr->data == chunks[0])
+				break ;
+		}
+		if (curr->data > chunks[level - 1] && curr->data <= chunks[level])
+			break;
+		cnt++;
+		curr = curr->prev;
+	}
+	return (cnt);
 }
 
-void		sort_not_more_than_hundred(t_global *g)
+void	sort_not_more_than_hundred(t_global *g)
 {
 	int	chunks[6];
+	int	size;
+	int	level;
+	int	position;
 
-	divide_chunks(g, chunks, 5);
+	size = ft_lst_size(g->stack_a);
+	if (divide_chunks(g, chunks, size, 5))
+	{
+		level = 1;
+		while (level < 6)
+		{
+			if (find_if_chunk(g, chunks, level))
+			{
+				position = get_distance(g, chunks, level);
+				if (position <= size / 2)
+					while (--position)
+						rotate_stack(&g->stack_a, &g->loc_a, 'a');
+				else
+					while ((size + 1) - position++)
+						reverse_rotate_stack(&g->stack_a, &g->loc_a, 'a');
+				push_stack_b(g);
+				if (!check_descending(g))
+				{
+					// stack_b 내림차순 정렬
+				}
+			}
+			else
+				level++;
+		}
+	}
 }

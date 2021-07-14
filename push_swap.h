@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 15:35:02 by tjung             #+#    #+#             */
-/*   Updated: 2021/07/14 05:30:53 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/15 03:40:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,14 +107,16 @@ void		reverse_rotate_stack(t_list **stack, t_locate *loc, char kind);
 void		reverse_rotate_both_stack(t_global *g, char kind);
 
 /*
- *			check_ascending.c
+ *			check_sorting.c
  */
 int			check_ascending(t_global *g);
+int			check_descending(t_global *g);
 
 /*
  *			sort_stack.c
  */
 void		sort_ascending(t_global *g);
+int			divide_chunks(t_global *g, int *chunks, int size, int zone);
 
 /*
  *			sort_not_more_than_five.c
