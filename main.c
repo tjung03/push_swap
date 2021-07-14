@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:39:46 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/13 23:29:16 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/14 23:42:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,13 @@ int	main(int ac, char **av)
 			return (free_list(1, g.stack_a, g.stack_b));
 		stack_location(g.stack_a, &g.loc_a);
 		// algorithms
-		test(&g);
-		sort_ascending(&g);
-		test(&g);
+		//test(&g);
+		//sort_ascending(&g);
+		//test(&g);
 
 		// test start
-		printf("%d\n", check_ascending(&g));
+		//printf("%d\n", check_ascending(&g));
+		sort_not_more_than_hundred(&g);
 	}
 	return (free_list(0, g.stack_a, g.stack_b));
 }
