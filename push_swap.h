@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 15:35:02 by tjung             #+#    #+#             */
-/*   Updated: 2021/07/15 03:40:00 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/15 16:37:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,11 @@ void		raise_one_to_top_in_five(t_global *g, int idx);
  *			sort_not_more_than_hundred.c
  */
 void		sort_not_more_than_hundred(t_global *g);
+
+/*
+ *			sort_hundred_details.c
+ */
+int			compare_size_for_b(t_global *g);
 
 /*
  *			sort_more_than_hundred.c

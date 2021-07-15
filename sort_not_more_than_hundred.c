@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 19:01:15 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/15 03:50:24 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/15 17:15:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,13 @@ int		get_distance(t_global *g, int *chunks, int level)
 void	sort_not_more_than_hundred(t_global *g)
 {
 	int	chunks[6];
-	int	size;
+	int	size_a;
 	int	level;
 	int	position;
+	int	compare;
 
-	size = ft_lst_size(g->stack_a);
-	if (divide_chunks(g, chunks, size, 5))
+	size_a = ft_lst_size(g->stack_a);
+	if (divide_chunks(g, chunks, size_a, 5))
 	{
 		level = 1;
 		while (level < 6)
@@ -69,16 +70,30 @@ void	sort_not_more_than_hundred(t_global *g)
 			if (find_if_chunk(g, chunks, level))
 			{
 				position = get_distance(g, chunks, level);
-				if (position <= size / 2)
+				if (position <= size_a / 2)
 					while (--position)
 						rotate_stack(&g->stack_a, &g->loc_a, 'a');
 				else
-					while ((size + 1) - position++)
+					while ((size_a + 1) - position++)
 						reverse_rotate_stack(&g->stack_a, &g->loc_a, 'a');
-				push_stack_b(g);
-				if (!check_descending(g))
+				if (g->stack_b)
 				{
-					// stack_b 내림차순 정렬
+					compare = compare_size_for_b(g);
+					if (!check_descending(g))
+					{
+						// 1. stack_b 내림차순 정렬 - sort_descending.c
+					}
+					if (ft_lst_size(g->stack_b) > 1 && !compare)
+					{
+						// 2. 이동할 값이 이동해서 stack_b 의 올바른 위치에 있도록 ra 시키고, 횟수 체크
+					}
+				}
+				push_stack_b(g);
+				if (compare == -1)
+					rotate_stack(&g->stack_b, &g->loc_b, 'b');
+				else if (!compare)
+				{
+					// 3. ra 에 대한 횟수만큼 rra 로 복구
 				}
 			}
 			else
