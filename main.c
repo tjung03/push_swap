@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/08 17:39:46 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/16 22:15:01 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/17 01:08:31 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	main(int ac, char **av)
 		if (!get_arguments(ac, av, &g.stack_a))
 			return (free_list(1, g.stack_a, g.stack_b));
 		stack_location(g.stack_a, &g.loc_a);
-		sort_ascending(&g);
+		if (!sort_ascending(&g))
+			return (free_list(1, g.stack_a, g.stack_b));
 	}
 	return (free_list(0, g.stack_a, g.stack_b));
 }

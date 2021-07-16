@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_not_more_than_five.c                          :+:      :+:    :+:   */
+/*   sort_not_more_five.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 18:51:07 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/16 21:07:34 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/17 01:00:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	sort_five(t_global *g)
 	}
 }
 
-void	sort_not_more_than_five(t_global *g, int size)
+void	sort_not_more_five(t_global *g, int size)
 {
 	if (!check_ascending(g))
 	{

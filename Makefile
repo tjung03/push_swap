@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/07 15:58:54 by tjung             #+#    #+#              #
-#    Updated: 2021/07/16 22:46:27 by marvin           ###   ########.fr        #
+#    Updated: 2021/07/17 01:01:23 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ SRCS =		main.c tools.c \
 			parsing.c parsing_tools.c argument_valid.c \
 			func_push_a.c func_push_b.c func_reverse_rotate.c func_rotate.c func_swap.c \
 			sort_ascending.c check_sorting.c calculation_tools.c sort_tools.c \
-			sort_not_more_than_five.c sort_five_details.c \
-			sort_more_than_five.c sort_more_five_details.c
+			sort_not_more_five.c sort_not_more_five_details.c \
+			sort_more_five.c sort_more_five_details.c
 
 OBJS =		$(SRCS:.c=.o)
 

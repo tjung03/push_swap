@@ -6,11 +6,52 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 16:12:40 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/16 20:58:43 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/17 02:26:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	find_if_chunk(t_global *g, int *chunks, int level)
+{
+	t_list	*curr;
+
+	curr = (g->loc_a).top;
+	while (curr)
+	{
+		if (level == 1)
+		{
+			if (curr->data == chunks[0])
+				return (1);
+		}
+		if (curr->data > chunks[level - 1] && curr->data <= chunks[level])
+			return (1);
+		curr = curr->prev;
+	}
+	return (0);
+}
+
+int	get_distance_stack_a(t_global *g, int *chunks, int level)
+{
+	t_list	*curr;
+	int		cnt;
+
+	curr = (g->loc_a).top;
+	cnt = 1;
+	while (curr)
+	{
+		if (level == 1)
+		{
+			if (curr->data == chunks[0])
+				break ;
+		}
+		if (curr->data > chunks[level - 1] && curr->data <= chunks[level])
+			break ;
+		cnt++;
+		curr = curr->prev;
+	}
+	return (cnt);
+}
 
 int	compare_size_for_b(t_global *g)
 {

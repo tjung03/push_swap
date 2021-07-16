@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/16 17:19:54 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/16 18:49:47 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/17 01:44:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,11 @@ int	divide_chunks(t_global *g, int *chunks, int size, int zone)
 	i = 0;
 	while (++i < zone)
 		chunks[i] = arr[(chunks[i] - 1)];
+	free(arr);
 	return (1);
 }
 
-int	find_correct_loc_stack_b(t_global *g, int size)
+int	get_distance_stack_b(t_global *g, int size)
 {
 	int	*arr;
 	int	cnt;
@@ -87,5 +88,6 @@ int	find_correct_loc_stack_b(t_global *g, int size)
 		if (top_a < arr[i] && top_a > arr[i - 1])
 			break ;
 	}
+	free(arr);
 	return (cnt);
 }
