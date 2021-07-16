@@ -18,14 +18,15 @@ int	sort_ascending(t_global *g)
 	int	size;
 	int	success;
 
-	size = ft_lst_size(g->stack_a);
 	chunks = NULL;
+	size = ft_lst_size(g->stack_a);
+	success = 1;
 	if (size <= 5)
 		sort_not_more_five(g, size);
 	else if (size <= 100)
-		success = sort_more_five(g, size, chunks, 5);
+		success = sort_more_five(g, size, chunks, 13);
 	else
-		success = sort_more_five(g, size, chunks, 11);
+		success = sort_more_five(g, size, chunks, 19);
 	if (!chunks)
 		free(chunks);
 	if (!success)

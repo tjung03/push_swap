@@ -53,8 +53,8 @@ static void	find_loc_stack_b(t_global *g, int size_b, int *comp, int *dist)
 
 static void	restore_to_stack_a(t_global *g, int size_b, int comp, int dist)
 {
-	int move;
-	int restore;
+	int	move;
+	int	restore;
 
 	move = dist;
 	restore = size_b - move;
@@ -82,7 +82,7 @@ static void	adjust_level(t_global *g, int size_a, int *chunks, int *level)
 	int	size_b;
 	int	compare;
 	int	distance;
-	
+
 	if (find_if_chunk(g, chunks, *level))
 	{
 		raise_chunk_to_top(g, size_a, get_distance_stack_a(g, chunks, *level));
