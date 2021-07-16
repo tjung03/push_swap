@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int		find_if_chunk(t_global *g, int *chunks, int level)
+int	find_if_chunk(t_global *g, int *chunks, int level)
 {
 	t_list	*curr;
 
@@ -31,7 +31,7 @@ int		find_if_chunk(t_global *g, int *chunks, int level)
 	return (0);
 }
 
-int		get_distance(t_global *g, int *chunks, int level)
+int	get_distance(t_global *g, int *chunks, int level)
 {
 	t_list	*curr;
 	int		cnt;
@@ -46,7 +46,7 @@ int		get_distance(t_global *g, int *chunks, int level)
 				break ;
 		}
 		if (curr->data > chunks[level - 1] && curr->data <= chunks[level])
-			break;
+			break ;
 		cnt++;
 		curr = curr->prev;
 	}

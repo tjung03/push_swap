@@ -47,7 +47,7 @@ static void	create_corresponding_array(t_global *g, int *arr)
 	}
 }
 
-int			divide_chunks(t_global *g, int *chunks, int size, int zone)
+int	divide_chunks(t_global *g, int *chunks, int size, int zone)
 {
 	int	*arr;
 	int	i;
@@ -67,7 +67,7 @@ int			divide_chunks(t_global *g, int *chunks, int size, int zone)
 	return (1);
 }
 
-int			find_correct_loc_stack_b(t_global *g, int size)
+int	find_correct_loc_stack_b(t_global *g, int size)
 {
 	int	*arr;
 	int	cnt;

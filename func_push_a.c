@@ -45,7 +45,7 @@ void	push_stack_a(t_global *g)
 	t_list	*first_a;
 	t_list	*first_b;
 	t_list	*second_b;
-	
+
 	if (g->stack_b)
 	{
 		first_b = (g->loc_b).top;
@@ -61,7 +61,6 @@ void	push_stack_a(t_global *g)
 			first_b->prev = first_a;
 			first_a->next = first_b;
 			(g->loc_a).top = first_b;
-
 		}
 		write(1, "pa\n", 3);
 	}

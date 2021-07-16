@@ -18,7 +18,7 @@ int	compare_size_for_b(t_global *g)
 	t_list	*curr_b;
 	int		max_b;
 	int		min_b;
-	
+
 	top_a = (g->loc_a).top;
 	curr_b = (g->loc_b).top;
 	max_b = curr_b->data;

@@ -15,7 +15,7 @@
 long long	ft_pw_atoi(char *s)
 {
 	long long	num;
-	int	i;
+	int			i;
 
 	num = 0;
 	i = 0;

@@ -20,7 +20,7 @@ static void	print_swap_kind(char kind)
 		write(1, "sb\n", 3);
 }
 
-void		swap_both_stack(t_global *g, char kind)
+void	swap_both_stack(t_global *g, char kind)
 {
 	swap_stack(&g->stack_a, &g->loc_a, kind);
 	swap_stack(&g->stack_b, &g->loc_b, kind);
@@ -28,7 +28,7 @@ void		swap_both_stack(t_global *g, char kind)
 		write(1, "ss\n", 3);
 }
 
-void		swap_stack(t_list **stack, t_locate *loc, char kind)
+void	swap_stack(t_list **stack, t_locate *loc, char kind)
 {
 	t_list	*first;
 	t_list	*second;

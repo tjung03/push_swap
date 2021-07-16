@@ -20,7 +20,7 @@ static void	print_rotate_kind(char kind)
 		write(1, "rb\n", 3);
 }
 
-void		rotate_both_stack(t_global *g, char kind)
+void	rotate_both_stack(t_global *g, char kind)
 {
 	rotate_stack(&g->stack_a, &g->loc_a, kind);
 	rotate_stack(&g->stack_b, &g->loc_b, kind);
@@ -28,7 +28,7 @@ void		rotate_both_stack(t_global *g, char kind)
 		write(1, "rr\n", 3);
 }
 
-void		rotate_stack(t_list **stack, t_locate *loc, char kind)
+void	rotate_stack(t_list **stack, t_locate *loc, char kind)
 {
 	t_list	*above;
 	t_list	*below;

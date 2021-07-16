@@ -39,7 +39,7 @@ static int	creat_list(char **arg, t_list **stack, int idx, int env)
 	return (1);
 }
 
-int			get_arguments(int ac, char **av, t_list **stack)
+int	get_arguments(int ac, char **av, t_list **stack)
 {
 	char	**split;
 	int		i;

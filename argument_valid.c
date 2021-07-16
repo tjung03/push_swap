@@ -19,13 +19,14 @@ static int	is_int(char *s)
 
 	i = -1;
 	while (s[++i])
+	{
 		if ((s[i] < 48 || s[i] > 57) && s[i] != ' ' && s[i] != '\t')
 		{
 			if (s[i] == '-' || s[i] == '+')
 			{
-				if ((i == 0 && s[1] >= 48 && s[1] <= 57) ||
-					(i != 0 && (s[i - 1] == ' ' || s[i - 1] == '\t')
-							&& s[i + 1] >= 48 && s[i + 1] <= 57))
+				if ((i == 0 && s[1] >= 48 && s[1] <= 57)
+					|| (i != 0 && (s[i - 1] == ' ' || s[i - 1] == '\t')
+						&& s[i + 1] >= 48 && s[i + 1] <= 57))
 				{
 					j = 1;
 					while ((s[i + ++j] != ' ' || s[i + j] != '\t') && s[i + j])
@@ -36,6 +37,7 @@ static int	is_int(char *s)
 			}
 			return (0);
 		}
+	}
 	return (1);
 }
 
@@ -46,7 +48,7 @@ static int	is_int_range(long long num)
 	return (0);
 }
 
-int			is_dup(t_list *stack)
+int	is_dup(t_list *stack)
 {
 	t_list	*curr;
 	int		num;
@@ -62,8 +64,8 @@ int			is_dup(t_list *stack)
 	return (0);
 }
 
-int			is_valid_int(char *s, int *data)
-{	
+int	is_valid_int(char *s, int *data)
+{
 	long long	num;
 
 	if (!is_int(s))

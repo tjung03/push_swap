@@ -19,7 +19,7 @@ int	check_env(char *av)
 	i = 0;
 	while (av[i])
 	{
-		if (av[i] < 48 && av[i] > 57)
+		if (av[i] < 48 || av[i] > 57)
 			return (1);
 		i++;
 	}

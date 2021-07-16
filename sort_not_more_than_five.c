@@ -15,7 +15,7 @@
 static int	sort_three(t_global *g)
 {
 	int	middle;
-	
+
 	if (top_is_min(g))
 	{
 		swap_stack(&g->stack_a, &g->loc_a, 'a');
@@ -62,7 +62,7 @@ static void	sort_five(t_global *g)
 	}
 }
 
-void		sort_not_more_than_five(t_global *g, int size)
+void	sort_not_more_than_five(t_global *g, int size)
 {
 	if (!check_ascending(g))
 	{

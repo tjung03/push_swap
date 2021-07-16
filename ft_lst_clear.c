@@ -27,4 +27,3 @@ void	ft_lst_clear(t_list *lst)
 		cur = pre;
 	}
 }
-

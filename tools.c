@@ -21,14 +21,14 @@ void	stack_location(t_list *stack, t_locate *loc)
 	loc->top = last;
 }
 
-int		print_error(int ret, char *str)
+int	print_error(int ret, char *str)
 {
 	if (ret == 1)
 		write(1, str, ft_strlen(str));
 	return (ret);
 }
 
-int		free_list(int ret, t_list *main, t_list *sub)
+int	free_list(int ret, t_list *main, t_list *sub)
 {
 	ft_lst_clear(main);
 	ft_lst_clear(sub);

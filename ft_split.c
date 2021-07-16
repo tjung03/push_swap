@@ -47,7 +47,7 @@ static size_t	get_len(char const *s)
 	return (len);
 }
 
-static char		**free_memory(char **memory)
+static char	**free_memory(char **memory)
 {
 	int		i;
 
@@ -58,7 +58,7 @@ static char		**free_memory(char **memory)
 	return (NULL);
 }
 
-static void		small_str(char const *s, size_t i, size_t *j, char **split)
+static void	small_str(char const *s, size_t i, size_t *j, char **split)
 {
 	size_t	k;
 
@@ -70,7 +70,7 @@ static void		small_str(char const *s, size_t i, size_t *j, char **split)
 	split[i][k] = '\0';
 }
 
-char			**ft_split(char const *s)
+char	**ft_split(char const *s)
 {
 	char	**split;
 	size_t	size;

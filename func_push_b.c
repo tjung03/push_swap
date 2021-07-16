@@ -45,7 +45,7 @@ void	push_stack_b(t_global *g)
 	t_list	*first_b;
 	t_list	*first_a;
 	t_list	*second_a;
-	
+
 	if (g->stack_a)
 	{
 		first_a = (g->loc_a).top;
