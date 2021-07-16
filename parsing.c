@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 18:44:18 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/09 20:43:17 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/16 22:14:45 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ static int	creat_list(char **arg, t_list **stack, int idx, int env)
 	return (1);
 }
 
-int			get_arguments(char **av, t_list **stack)
+int			get_arguments(int ac, char **av, t_list **stack)
 {
 	char	**split;
 	int		i;
 	int		j;
 
 	split = NULL;
-	i = 0;
-	while (av[++i])
+	i = ac;
+	while (--i > 0)
 	{
 		if (check_env(av[i]))
 		{

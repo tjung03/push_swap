@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_more_than_hundred.c                           :+:      :+:    :+:   */
+/*   sort_ascending.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/14 05:30:08 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/15 02:26:25 by marvin           ###   ########.fr       */
+/*   Created: 2021/07/13 18:52:00 by marvin            #+#    #+#             */
+/*   Updated: 2021/07/16 21:01:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_more_than_hundred(t_global *g)
+void	sort_ascending(t_global *g)
 {
-	int	chunks[12];
 	int	size;
 
 	size = ft_lst_size(g->stack_a);
-	if (divide_chunks(g, chunks, size, 11))
-	{
-		
-	}
+	if (size <= 5)
+		sort_not_more_than_five(g, size);
+	else if (size <= 100)
+		sort_more_than_five(g, size, 5);
+	else
+		sort_more_than_five(g, size, 11);
 }

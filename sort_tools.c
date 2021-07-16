@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_stack.c                                       :+:      :+:    :+:   */
+/*   sort_tools.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/13 18:52:00 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/15 02:26:05 by marvin           ###   ########.fr       */
+/*   Created: 2021/07/16 17:19:54 by marvin            #+#    #+#             */
+/*   Updated: 2021/07/16 18:49:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	create_corresponding_array(t_global *g, int *arr)
+static void	save_lst_to_arr(t_list *stack, int *arr, int *i)
 {
 	t_list	*curr;
-	int		i;
-	int		j;
-	int		temp;
 
-	curr = g->stack_a;
-	i = 0;
+	curr = stack;
+	*i = 0;
 	while (curr)
 	{
-		arr[i++] = curr->data;
+		arr[(*i)++] = curr->data;
 		curr = curr->next;
 	}
+}
+
+static void	create_corresponding_array(t_global *g, int *arr)
+{
+	int		temp;
+	int		i;
+	int		j;
+
+	save_lst_to_arr(g->stack_a, arr, &i);
 	while (i--)
 	{
 		j = -1;
@@ -61,15 +67,25 @@ int			divide_chunks(t_global *g, int *chunks, int size, int zone)
 	return (1);
 }
 
-void	sort_ascending(t_global *g)
+int			find_correct_loc_stack_b(t_global *g, int size)
 {
-	int	size;
+	int	*arr;
+	int	cnt;
+	int	top_a;
+	int	i;
 
-	size = ft_lst_size(g->stack_a);
-	if (size <= 5)
-		sort_not_more_than_five(size, g);
-	else if (size <= 100)
-		sort_not_more_than_hundred(g);//
-	else
-		sort_more_than_hundred(g);//
+	arr = (int *)malloc(sizeof(int) * size);
+	if (!arr)
+		return (-1);
+	save_lst_to_arr(g->stack_b, arr, &i);
+	cnt = 0;
+	top_a = ((g->loc_a).top)->data;
+	i = size;
+	while (i-- > 0)
+	{
+		cnt++;
+		if (top_a < arr[i] && top_a > arr[i - 1])
+			break ;
+	}
+	return (cnt);
 }
