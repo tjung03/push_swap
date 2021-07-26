@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 18:52:00 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/17 01:25:15 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/26 19:30:09 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,15 @@
 
 int	sort_ascending(t_global *g)
 {
-	int	*chunks;
-	int	size;
-	int	success;
+	int	lst_size;
 
-	chunks = NULL;
-	size = ft_lst_size(g->stack_a);
-	success = 1;
-	if (size <= 5)
-		sort_not_more_five(g, size);
-	else if (size <= 100)
-		success = sort_more_five(g, size, chunks, 13);
+	lst_size = ft_lst_size(g->stack_a);
+	if (lst_size <= 5)
+		sort_not_more_five(g, lst_size);
 	else
-		success = sort_more_five(g, size, chunks, 19);
-	if (!chunks)
-		free(chunks);
-	if (!success)
-		return (0);
+	{
+		if (!sort_more_five(g, lst_size))
+			return (0);
+	}
 	return (1);
 }

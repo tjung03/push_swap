@@ -6,48 +6,48 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 19:41:10 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/17 02:33:43 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/26 19:18:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_ascending(t_global *g)
+int	check_a_ascending(t_global *g, int size)
 {
 	t_list	*curr;
 	int		check_point;
 	int		comparison_target;
 
-	curr = g->stack_a;
-	if (curr)
+	curr = (g->loc_a).top;
+	if (g->stack_a)
 	{
-		while (curr->next)
+		while (curr->prev && --size)
 		{
 			check_point = curr->data;
-			curr = curr->next;
+			curr = curr->prev;
 			comparison_target = curr->data;
-			if (check_point < comparison_target)
+			if (check_point > comparison_target)
 				return (0);
 		}
 	}
 	return (1);
 }
 
-int	check_descending(t_global *g)
+int	check_b_descending(t_global *g, int size)
 {
 	t_list	*curr;
 	int		check_point;
 	int		comparison_target;
 
-	curr = g->stack_b;
-	if (curr)
+	curr = (g->loc_b).top;
+	if (g->stack_b)
 	{
-		while (curr->next)
+		while (curr->prev && --size)
 		{
 			check_point = curr->data;
-			curr = curr->next;
+			curr = curr->prev;
 			comparison_target = curr->data;
-			if (check_point > comparison_target)
+			if (check_point < comparison_target)
 				return (0);
 		}
 	}
