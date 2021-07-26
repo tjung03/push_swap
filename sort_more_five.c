@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 19:01:15 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/27 03:20:07 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/27 04:01:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,12 @@ int	sort_b_to_a(t_global *g, int size)
 		if (!check_b_descending(g, size))
 		{//
 			swap_stack(&g->stack_b, &g->loc_b, 'a');
-			//print_stacks(g);//
+//			print_stacks(g);//
 		}//
 		while (size--)
 		{//
 			push_stack_a(g);
-			//print_stacks(g);//
+//			print_stacks(g);//
 		}//
 		return (1);
 	}
@@ -94,25 +94,25 @@ int	sort_b_to_a(t_global *g, int size)
 	if (!pivot)
 		return (0);
 	/**/
-	//printf("b - pivot[0] : %d, pivot[1] : %d\n", pivot[0], pivot[1]);
+//	printf("b - pivot[0] : %d, pivot[1] : %d\n", pivot[0], pivot[1]);
 	/**/
 	while (size--)
 	{
 		if (((g->loc_b).top)->data < pivot[0])// && ft_lst_size(g->stack_b) > 1)
 		{
 			rotate_stack(&g->stack_b, &g->loc_b, 'b');
-			//print_stacks(g);//
+//			print_stacks(g);//
 			rb_cnt++;
 		}
 		else
 		{
 			push_stack_a(g);
-			//print_stacks(g);//
+//			print_stacks(g);//
 			pa_cnt++;
 			if (((g->loc_a).top)->data < pivot[1])// && ft_lst_size(g->stack_a) > 1)
 			{
 				rotate_stack(&g->stack_a, &g->loc_a, 'a');
-				//print_stacks(g);//
+//				print_stacks(g);//
 				ra_cnt++;
 			}
 		}
@@ -123,16 +123,16 @@ int	sort_b_to_a(t_global *g, int size)
 	re_cnt = find_min_cnt(ra_cnt, rb_cnt);
 	while (re_cnt--)
 	{//
-		rotate_both_stack(g, 'r');
-		//print_stacks(g);//
+		reverse_rotate_both_stack(g, 'r');
+//		print_stacks(g);//
 	}//
 	if (ra_cnt <= rb_cnt)
 	{
 		re_cnt = rb_cnt - ra_cnt;
 		while (re_cnt-- > 0)
 		{//
-			rotate_stack(&g->stack_b, &g->loc_b, 'b');
-			//print_stacks(g);//
+			reverse_rotate_stack(&g->stack_b, &g->loc_b, 'b');
+//			print_stacks(g);//
 		}//
 	}
 	else
@@ -140,8 +140,8 @@ int	sort_b_to_a(t_global *g, int size)
 		re_cnt = ra_cnt - rb_cnt;
 		while (re_cnt--)
 		{//
-			rotate_stack(&g->stack_a, &g->loc_a, 'a');
-			//print_stacks(g);//
+			reverse_rotate_stack(&g->stack_a, &g->loc_a, 'a');
+//			print_stacks(g);//
 		}//
 	}
 	if (!sort_a_to_b(g, ra_cnt))
@@ -167,7 +167,7 @@ int	sort_a_to_b(t_global *g, int size)
 		if (!check_a_ascending(g, size))
 		{//
 			swap_stack(&g->stack_a, &g->loc_a, 'a');
-			//print_stacks(g);//
+//			print_stacks(g);//
 		}//
 		return (1);
 	}
@@ -175,25 +175,25 @@ int	sort_a_to_b(t_global *g, int size)
 	if (!pivot)
 		return (0);
 	/**/
-	//printf("a - pivot[0] : %d, pivot[1] : %d\n", pivot[0], pivot[1]);
+//	printf("a - pivot[0] : %d, pivot[1] : %d\n", pivot[0], pivot[1]);
 	/**/
 	while (size--)
 	{
 		if (((g->loc_a).top)->data >= pivot[1])// && ft_lst_size(g->stack_a) > 1)
 		{
 			rotate_stack(&g->stack_a, &g->loc_a, 'a');
-			//print_stacks(g);//
+//			print_stacks(g);//
 			ra_cnt++;
 		}
 		else
 		{
 			push_stack_b(g);
-			//print_stacks(g);//
+//			print_stacks(g);//
 			pb_cnt++;
 			if (((g->loc_b).top)->data >= pivot[0])// && ft_lst_size(g->stack_b) > 1)
 			{
 				rotate_stack(&g->stack_b, &g->loc_b, 'b');
-				//print_stacks(g);//
+//				print_stacks(g);//
 				rb_cnt++;
 			}
 		}
@@ -201,16 +201,16 @@ int	sort_a_to_b(t_global *g, int size)
 	re_cnt = find_min_cnt(ra_cnt, rb_cnt);
 	while (re_cnt--)
 	{//
-		rotate_both_stack(g, 'r');
-		//print_stacks(g);//
+		reverse_rotate_both_stack(g, 'r');
+//		print_stacks(g);//
 	}//
 	if (ra_cnt <= rb_cnt)
 	{
 		re_cnt = rb_cnt - ra_cnt;
 		while (re_cnt-- > 0)
 		{//
-			rotate_stack(&g->stack_b, &g->loc_b, 'b');
-			//print_stacks(g);//
+			reverse_rotate_stack(&g->stack_b, &g->loc_b, 'b');
+//			print_stacks(g);//
 		}//
 	}
 	else
@@ -218,8 +218,8 @@ int	sort_a_to_b(t_global *g, int size)
 		re_cnt = ra_cnt - rb_cnt;
 		while (re_cnt--)
 		{//
-			rotate_stack(&g->stack_a, &g->loc_a, 'a');
-			//print_stacks(g);//
+			reverse_rotate_stack(&g->stack_a, &g->loc_a, 'a');
+//			print_stacks(g);//
 		}//
 	}
 	free(pivot);
@@ -234,12 +234,12 @@ int	sort_a_to_b(t_global *g, int size)
 
 int	sort_more_five(t_global *g, int lst_size)
 {
-	//print_stacks(g);//
+//	print_stacks(g);//
 	if (!check_a_ascending(g, lst_size))
 	{
 		if (!sort_a_to_b(g, lst_size))
 			return (0);
-		//print_stacks(g);//
+//		print_stacks(g);//
 	}
 	return (1);
 }

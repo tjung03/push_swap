@@ -72,13 +72,18 @@ int	main(int ac, char **av)
 		if (!get_arguments(ac, av, &g.stack_a))
 			return (free_list(1, g.stack_a, g.stack_b));
 		stack_location(g.stack_a, &g.loc_a);
-		if (!sort_ascending(&g))
-			return (free_list(1, g.stack_a, g.stack_b));
-		/*
+/*
 		for(t_list *curr = (g.loc_a).top; curr != NULL; curr = curr->prev)
 			printf("%12d", curr->data);
 		printf("\n\n");
-		*/
+*/
+		if (!sort_ascending(&g))
+			return (free_list(1, g.stack_a, g.stack_b));
+/*
+		for(t_list *curr = (g.loc_a).top; curr != NULL; curr = curr->prev)
+			printf("%12d", curr->data);
+		printf("\n\n");
+*/
 	}
 	return (free_list(0, g.stack_a, g.stack_b));
 }
