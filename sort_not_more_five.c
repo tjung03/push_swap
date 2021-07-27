@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 18:51:07 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/26 00:25:48 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/28 08:04:59 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,65 +14,93 @@
 
 static int	sort_three(t_global *g)
 {
-	int	middle;
-
 	if (top_is_min(g))
 	{
-		swap_stack(&g->stack_a, &g->loc_a, 'a');
-		rotate_stack(&g->stack_a, &g->loc_a, 'a');
+		if (!execute_cmds(g, 1))
+			return (0);
+		if (!execute_cmds(g, 6))
+			return (0);
 	}
 	else
-		top_isnt_min_in_three(g);
-	middle = ((g->stack_a)->next)->data;
-	return (middle);
-}
-
-static void	sort_four(t_global *g, int size)
-{
-	int	min_idx;
-
-	min_idx = what_min_idx(&g->loc_a);
-	raise_one_to_top_in_five(g, min_idx);
-	if (!check_a_ascending(g, size))
 	{
-		push_stack_b(g);
-		sort_three(g);
-		push_stack_a(g);
+		if (!top_isnt_min_in_three(g))
+			return (0);
 	}
+	return (1);
 }
 
-static void	sort_five(t_global *g, int size)
+static int	sort_four(t_global *g, int size)
 {
 	int	min_idx;
-	int	max_idx;
 
 	min_idx = what_min_idx(&g->loc_a);
-	raise_one_to_top_in_five(g, min_idx);
+	if (!raise_one_to_top_in_five(g, min_idx))
+		return (0);
 	if (!check_a_ascending(g, size))
 	{
-		push_stack_b(g);
-		max_idx = what_max_idx(&g->loc_a);
-		raise_one_to_top_in_five(g, max_idx);
-		push_stack_b(g);
+		if (!execute_cmds(g, 5))
+			return (0);
+		if (!sort_three(g))
+			return (0);
+		if (!execute_cmds(g, 4))
+			return (0);
+	}
+	return (1);
+}
+
+static int	sort_five(t_global *g, int size)
+{
+	int	idx;
+
+	idx = what_min_idx(&g->loc_a);
+	if (!raise_one_to_top_in_five(g, idx))
+		return (0);
+	if (!check_a_ascending(g, size))
+	{
+		if (!execute_cmds(g, 5))
+			return (0);
+		idx = what_max_idx(&g->loc_a);
+		if (!raise_one_to_top_in_five(g, idx))
+			return (0);
+		if (!execute_cmds(g, 5))
+			return (0);
 		if (!check_a_ascending(g, size))
-			sort_three(g);
-		push_stack_a(g);
-		rotate_stack(&g->stack_a, &g->loc_a, 'a');
-		push_stack_a(g);
+			if (!sort_three(g))
+				return (0);
+		if (!execute_cmds(g, 4))
+			return (0);
+		if (!execute_cmds(g, 6))
+			return (0);
+		if (!execute_cmds(g, 4))
+			return (0);
 	}
+	return (1);
 }
 
-void	sort_not_more_five(t_global *g, int size)
+int	sort_not_more_five(t_global *g, int size)
 {
 	if (!check_a_ascending(g, size))
 	{
 		if (size == 2)
-			swap_stack(&g->stack_a, &g->loc_a, 'a');
+		{
+			if (!execute_cmds(g, 1))
+				return (0);
+		}
 		else if (size == 3)
-			sort_three(g);
+		{
+			if (!sort_three(g))
+				return (0);
+		}
 		else if (size == 4)
-			sort_four(g, size);
+		{
+			if (!sort_four(g, size))
+				return (0);
+		}
 		else
-			sort_five(g, size);
+		{
+			if (!sort_five(g, size))
+				return (0);
+		}
 	}
+	return (1);
 }

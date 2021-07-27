@@ -6,54 +6,96 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 03:56:39 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/17 00:59:28 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/28 08:04:07 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	top_isnt_min_in_three(t_global *g)
+static int	no_max_top(t_global *g, int middle)
+{
+	if (middle < (g->stack_a)->data)
+	{
+		if (!execute_cmds(g, 1))
+			return (0);
+	}
+	else
+	{
+		if (!execute_cmds(g, 9))
+			return (0);
+	}
+	return (1);
+}
+
+static int	max_top(t_global *g, int middle)
+{
+	if (middle < (g->stack_a)->data)
+	{
+		if (!execute_cmds(g, 6))
+			return (0);
+	}
+	else
+	{
+		if (!execute_cmds(g, 1))
+			return (0);
+		if (!execute_cmds(g, 9))
+			return (0);
+	}
+	return (1);
+}
+
+int	top_isnt_min_in_three(t_global *g)
 {
 	int	middle;
 
 	middle = ((g->stack_a)->next)->data;
 	if (!top_is_max(g))
 	{
-		if (middle < (g->stack_a)->data)
-			swap_stack(&g->stack_a, &g->loc_a, 'a');
-		else
-			reverse_rotate_stack(&g->stack_a, &g->loc_a, 'a');
+		if (!no_max_top(g, middle))
+			return (0);
 	}
 	else
 	{
-		if (middle < (g->stack_a)->data)
-			rotate_stack(&g->stack_a, &g->loc_a, 'a');
-		else
-		{
-			swap_stack(&g->stack_a, &g->loc_a, 'a');
-			reverse_rotate_stack(&g->stack_a, &g->loc_a, 'a');
-		}
+		if (!max_top(g, middle))
+			return (0);
 	}
+	return (1);
 }
 
-void	raise_one_to_top_in_five(t_global *g, int idx)
+static int	move_according_to_idx(t_global *g, int size, int idx)
+{
+	if (idx == 2)
+	{
+		if (!execute_cmds(g, 1))
+			return (0);
+	}
+	else if (idx == 3)
+	{
+		if (!execute_cmds(g, 6))
+			return (0);
+		if (!execute_cmds(g, 1))
+			return (0);
+	}
+	else if (idx == 4)
+	{
+		if (!execute_cmds(g, 9))
+			return (0);
+		if (size == 5)
+			if (!execute_cmds(g, 9))
+				return (0);
+	}
+	else if (idx == 5)
+		if (!execute_cmds(g, 9))
+			return (0);
+	return (1);
+}
+
+int	raise_one_to_top_in_five(t_global *g, int idx)
 {
 	int	size;
 
 	size = ft_lst_size(g->stack_a);
-	if (idx == 2)
-		swap_stack(&g->stack_a, &g->loc_a, 'a');
-	else if (idx == 3)
-	{
-		rotate_stack(&g->stack_a, &g->loc_a, 'a');
-		swap_stack(&g->stack_a, &g->loc_a, 'a');
-	}
-	else if (idx == 4)
-	{
-		reverse_rotate_stack(&g->stack_a, &g->loc_a, 'a');
-		if (size == 5)
-			reverse_rotate_stack(&g->stack_a, &g->loc_a, 'a');
-	}
-	else if (idx == 5)
-		reverse_rotate_stack(&g->stack_a, &g->loc_a, 'a');
+	if (!move_according_to_idx(g, size, idx))
+		return (0);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 15:35:02 by tjung             #+#    #+#             */
-/*   Updated: 2021/07/28 06:50:38 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/28 07:41:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,13 +137,13 @@ int			sort_ascending(t_global *g);
 /*
  *			sort_not_more_five.c
  */
-void		sort_not_more_five(t_global *g, int size);
+int			sort_not_more_five(t_global *g, int size);
 
 /*
  *			sort_not_more_five_details.c
  */
-void		top_isnt_min_in_three(t_global *g);
-void		raise_one_to_top_in_five(t_global *g, int idx);
+int			top_isnt_min_in_three(t_global *g);
+int			raise_one_to_top_in_five(t_global *g, int idx);
 
 /*
  *			sort_not_more_five_tools.c
