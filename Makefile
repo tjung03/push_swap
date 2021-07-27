@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/07 15:58:54 by tjung             #+#    #+#              #
-#    Updated: 2021/07/25 21:13:54 by marvin           ###   ########.fr        #
+#    Updated: 2021/07/28 05:33:36 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,15 @@ CC = 		gcc
 
 CFLAGS =	-Wall -Wextra -Werror
 
-SRCS =		main.c tools.c \
+SRCS =		main.c tools.c command_tools.c print_commands.c \
 			ft_memset.c ft_strlen.c ft_split.c ft_pw_atoi.c \
 			ft_lst_add_back.c ft_lst_clear.c ft_lst_last.c ft_lst_new.c ft_lst_size.c \
 			parsing.c parsing_tools.c argument_valid.c \
 			func_push_a.c func_push_b.c func_reverse_rotate.c func_rotate.c func_swap.c \
 			sort_ascending.c check_sorting.c \
 			sort_not_more_five.c sort_not_more_five_details.c sort_not_more_five_tools.c \
-			sort_more_five.c sort_more_five_details.c sort_more_five_tools.c
+			sort_more_five.c sort_more_five_tools.c \
+			sort_more_five_a_to_b.c sort_more_five_b_to_a.c
 
 OBJS =		$(SRCS:.c=.o)
 

@@ -6,29 +6,31 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 19:42:30 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/14 05:38:52 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/28 04:27:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	print_rotate_kind(char kind)
+static int	print_rotate_kind(char kind)
 {
 	if (kind == 'a')
-		write(1, "ra\n", 3);
+		return (6);
 	else if (kind == 'b')
-		write(1, "rb\n", 3);
+		return (7);
+	return (-1);
 }
 
-void	rotate_both_stack(t_global *g, char kind)
+int	rotate_both_stack(t_global *g, char kind)
 {
 	rotate_stack(&g->stack_a, &g->loc_a, kind);
 	rotate_stack(&g->stack_b, &g->loc_b, kind);
 	if (kind == 'r')
-		write(1, "rr\n", 3);
+		return (8);
+	return (-1);
 }
 
-void	rotate_stack(t_list **stack, t_locate *loc, char kind)
+int	rotate_stack(t_list **stack, t_locate *loc, char kind)
 {
 	t_list	*above;
 	t_list	*below;
@@ -48,6 +50,7 @@ void	rotate_stack(t_list **stack, t_locate *loc, char kind)
 		*stack = above;
 		loc->bottom = *stack;
 		loc->top = temp;
-		print_rotate_kind(kind);
+		return (print_rotate_kind(kind));
 	}
+	return (-1);
 }

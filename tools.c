@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 19:18:59 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/16 21:59:59 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/28 05:24:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,30 @@ int	print_error(int ret, char *str)
 	return (ret);
 }
 
-int	free_list(int ret, t_list *main, t_list *sub)
+int	free_sortool(int ret, t_sortool *t)
 {
-	ft_lst_clear(main);
-	ft_lst_clear(sub);
+	if (t)
+	{
+		if (t->pivot)
+			free(t->pivot);
+		free(t);
+	}
+	return (ret);
+}
+
+int	free_list(int ret, t_global *g)
+{
+	t_command	*curr;
+	t_command	*next;
+
+	ft_lst_clear(g->stack_a);
+	ft_lst_clear(g->stack_b);
+	curr = g->cmd;
+	while (curr)
+	{
+		next = curr->next;
+		free(curr);
+		curr = next;
+	}
 	return (print_error(ret, "Error\n"));
 }

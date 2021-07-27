@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 19:42:30 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/10 03:50:36 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/28 04:24:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	have_prev_stack_b(t_global *g, t_list **first_b, t_list **second_b)
 	}
 }
 
-void	push_stack_a(t_global *g)
+int	push_stack_a(t_global *g)
 {
 	t_list	*first_a;
 	t_list	*first_b;
@@ -62,6 +62,7 @@ void	push_stack_a(t_global *g)
 			first_a->next = first_b;
 			(g->loc_a).top = first_b;
 		}
-		write(1, "pa\n", 3);
+		return (4);
 	}
+	return (-1);
 }
