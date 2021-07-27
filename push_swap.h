@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 15:35:02 by tjung             #+#    #+#             */
-/*   Updated: 2021/07/28 05:28:08 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/28 06:50:38 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_sortool {
 }	t_sortool;
 
 typedef struct s_command {
-	int					value;
+	int					v;
 	struct s_command	*next;
 }	t_command;
 
@@ -91,6 +91,7 @@ int			free_list(int ret, t_global *g);
 /*
  *			print_commands.c
  */
+void		delete_unnecessary_commands(t_command **cmd);
 void		print_num_cmds(t_command *cmd);
 
 /*

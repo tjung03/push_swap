@@ -25,6 +25,7 @@ int	main(int ac, char **av)
 		stack_location(g.stack_a, &g.loc_a);
 		if (!sort_ascending(&g))
 			return (free_list(1, &g));
+		delete_unnecessary_commands(&g.cmd);
 		print_num_cmds(g.cmd);
 	}
 	return (free_list(0, &g));

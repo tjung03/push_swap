@@ -6,11 +6,59 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 05:15:06 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/28 05:17:22 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/28 06:52:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	change_value_two_nodes(t_command **cur, t_command **nxt, int num)
+{
+	if (num == 8)
+	{
+		(*cur)->v = 8;
+		(*nxt)->v = -1;
+	}
+	else if (num == 11)
+	{
+		(*cur)->v = 11;
+		(*nxt)->v = -1;
+	}
+}
+
+static void	change_values_two_nodes(t_command **cur, t_command **nxt)
+{
+	(*cur)->v = -1;
+	(*nxt)->v = -1;
+}
+
+void	delete_unnecessary_commands(t_command **cmd)
+{
+	t_command	*c;
+	t_command	*n;
+
+	c = *cmd;
+	while (c)
+	{
+		n = c->next;
+		if (n)
+		{
+			if ((c->v == 6 && n->v == 9) || (c->v == 9 && n->v == 6)
+					|| (c->v == 7 && n->v == 10) || (c->v == 10 && n->v == 7)
+					|| (c->v == 4 && n->v == 5) || (c->v == 5 && n->v == 4)
+					|| (c->v == 1 && n->v == 1)
+					|| (c->v == 2 && n->v == 2)
+					|| (c->v == 3 && n->v == 3)
+					|| (c->v == 8 && n->v == 11) || (c->v == 11 && n->v == 8))
+				change_values_two_nodes(&c, &n);
+			else if ((c->v == 6 && n->v == 7) || (c->v == 7 && n->v == 6))
+				change_value_two_nodes(&c, &n, 8);
+			else if ((c->v == 9 && n->v == 10) || (c->v == 10 && n->v == 9))
+				change_value_two_nodes(&c, &n, 11);
+		}
+		c = n;
+	}
+}
 
 static void	print_str_cmds(int value)
 {
@@ -45,7 +93,7 @@ void	print_num_cmds(t_command *cmd)
 	curr = cmd;
 	while (curr)
 	{
-		print_str_cmds(curr->value);
+		print_str_cmds(curr->v);
 		curr = curr->next;
 	}
 }

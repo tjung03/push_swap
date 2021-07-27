@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 03:46:08 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/28 04:13:09 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/28 06:44:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	save_cmds(t_global *g, int num)
 		g->cmd = (t_command *)malloc(sizeof(t_command));
 		if (!(g->cmd))
 			return (0);
-		(g->cmd)->value = num;
+		(g->cmd)->v = num;
 		(g->cmd)->next = NULL;
 	}
 	else
@@ -34,7 +34,7 @@ static int	save_cmds(t_global *g, int num)
 		if (!temp)
 			return (0);
 		curr->next = temp;
-		temp->value = num;
+		temp->v = num;
 		temp->next = NULL;
 		temp = NULL;
 	}
