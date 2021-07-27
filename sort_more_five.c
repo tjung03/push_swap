@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 19:01:15 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/27 04:01:47 by marvin           ###   ########.fr       */
+/*   Updated: 2021/07/28 00:31:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	sort_b_to_a(t_global *g, int size)
 	{
 		if (!check_b_descending(g, size))
 		{//
-			swap_stack(&g->stack_b, &g->loc_b, 'a');
+			swap_stack(&g->stack_b, &g->loc_b, 'b');
 //			print_stacks(g);//
 		}//
 		while (size--)
