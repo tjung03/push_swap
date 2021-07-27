@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   command_tools.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: tjung <tjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/28 03:46:08 by marvin            #+#    #+#             */
-/*   Updated: 2021/07/28 06:44:19 by marvin           ###   ########.fr       */
+/*   Created: 2021/07/28 08:32:57 by tjung             #+#    #+#             */
+/*   Updated: 2021/07/28 08:33:00 by tjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	save_cmds(t_global *g, int num)
 {
 	t_command	*curr;
 	t_command	*temp;
-	
+
 	if (!(g->cmd))
 	{
 		g->cmd = (t_command *)malloc(sizeof(t_command));
@@ -74,7 +74,7 @@ static void	execute_swap(t_global *g, int num, int *ok)
 int	execute_cmds(t_global *g, int num)
 {
 	int	ok;
-	
+
 	ok = 1;
 	if (num >= 1 && num <= 3)
 		execute_swap(g, num, &ok);
