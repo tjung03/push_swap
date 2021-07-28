@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjung <tjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/28 08:34:28 by tjung             #+#    #+#             */
-/*   Updated: 2021/07/28 08:34:32 by tjung            ###   ########.fr       */
+/*   Created: 2021/07/28 09:08:02 by tjung             #+#    #+#             */
+/*   Updated: 2021/07/28 09:08:07 by tjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>//
 
 typedef struct s_sortool {
 	int	*pivot;
