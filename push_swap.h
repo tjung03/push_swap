@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tjung <tjung@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/28 09:08:02 by tjung             #+#    #+#             */
-/*   Updated: 2021/07/28 09:08:07 by tjung            ###   ########.fr       */
+/*   Created: 2021/07/29 03:38:05 by tjung             #+#    #+#             */
+/*   Updated: 2021/07/29 03:38:08 by tjung            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,11 @@ int			free_list(int ret, t_global *g);
  */
 void		delete_unnecessary_commands(t_command **cmd);
 void		print_num_cmds(t_command *cmd);
+
+/*
+ *			delete_commands.c
+ */
+void		delete_unnecessary_commands(t_command **cmd);
 
 /*
  *			command_tools.c

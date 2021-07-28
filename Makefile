@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tjung <tjung@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/07/28 08:35:51 by tjung             #+#    #+#              #
-#    Updated: 2021/07/28 08:35:55 by tjung            ###   ########.fr        #
+#    Created: 2021/07/29 03:36:36 by tjung             #+#    #+#              #
+#    Updated: 2021/07/29 03:36:40 by tjung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = 		gcc
 
 CFLAGS =	-Wall -Wextra -Werror
 
-SRCS =		main.c tools.c command_tools.c print_commands.c \
+SRCS =		main.c tools.c command_tools.c print_commands.c delete_commands.c \
 			ft_memset.c ft_strlen.c ft_split.c ft_pw_atoi.c \
 			ft_lst_add_back.c ft_lst_clear.c ft_lst_last.c ft_lst_new.c ft_lst_size.c \
 			parsing.c parsing_tools.c argument_valid.c \
