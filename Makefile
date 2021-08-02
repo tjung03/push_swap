@@ -6,11 +6,11 @@
 #    By: tjung <tjung@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/29 03:36:36 by tjung             #+#    #+#              #
-#    Updated: 2021/07/29 03:36:40 by tjung            ###   ########.fr        #
+#    Updated: 2021/08/03 00:43:41 by tjung            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		 push_swap
+NAME =		push_swap
 
 CC = 		gcc
 
