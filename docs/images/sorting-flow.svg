@@ -28,13 +28,13 @@
 <text x="575" y="301" font-size="14" fill="#263a54">두 Pivot으로 구간 분류 · 회전 복구</text>
 <text x="575" y="324" font-size="14" fill="#263a54">sort_a_to_b() ↔ sort_b_to_a() 재귀</text>
 
-<path d="M300 342 V399 H440 V417" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M690 342 V399 H440 V417" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M300 342 V428" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M690 342 V404 H360 V428" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
 
 <rect x="32" y="388" width="936" height="130" rx="12" fill="#ecf8f4" stroke="#a9d5c6"/>
 <text x="52" y="420" font-size="17" font-weight="700" fill="#086b62">03  Command List · 출력</text>
 <rect x="170" y="438" width="220" height="56" rx="10" fill="#fff" stroke="#cbd5e1"/>
-<text x="190" y="472" font-size="17" font-weight="700" fill="#086b62">Stack 연산 실행·저장</text>
+<text x="190" y="472" font-size="17" font-weight="700" fill="#086b62">execute_cmds() · 연산 실행·저장</text>
 <rect x="420" y="438" width="220" height="56" rx="10" fill="#fff" stroke="#cbd5e1"/>
 <text x="440" y="463" font-size="17" font-weight="700" fill="#086b62">명령 결합 · 상쇄</text><text x="440" y="485" font-size="13" fill="#263a54">ss · rr · rrr / 역연산 제거</text>
 <rect x="670" y="438" width="160" height="56" rx="10" fill="#fff" stroke="#cbd5e1"/>
