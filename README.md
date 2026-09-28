@@ -4,19 +4,7 @@
 
 ## 정렬 처리 흐름
 
-```mermaid
-flowchart LR
-    A["입력 인자"] --> B["정수 형식·범위·중복 검사"]
-    B --> C["Stack A 구성"]
-    C --> D{"원소 수 ≤ 5?"}
-    D -->|"Yes"| E["소규모 전용 정렬"]
-    D -->|"No"| F["두 Pivot 기준 재귀 분할"]
-    F --> G["A → B / B → A 이동·회전"]
-    E --> H["실행 명령을 Command List에 저장"]
-    G --> H
-    H --> I["인접 명령 결합·상쇄"]
-    I --> J["최종 명령 출력"]
-```
+![입력 검증부터 크기별 정렬, 두 Pivot 재귀 분할, 명령 후처리와 최종 출력까지의 push_swap 처리 흐름](docs/images/sorting-flow.svg)
 
 정렬 연산은 즉시 출력하지 않고 별도 Command List에 저장합니다. 정렬이 끝난 뒤 반대 방향 회전이나 상쇄 가능한 Push·Swap을 제거하고, 두 Stack에 같은 방향으로 적용되는 연산은 `ss`·`rr`·`rrr`로 합친 뒤 출력합니다.
 
