@@ -4,9 +4,17 @@
 
 ## 정렬 처리 흐름
 
-![입력 검증부터 크기별 정렬, 두 Pivot 재귀 분할, 명령 후처리와 최종 출력까지의 push_swap 처리 흐름](docs/images/sorting-flow.svg)
+### 정렬 전략
 
-정렬 연산은 즉시 출력하지 않고 별도 Command List에 저장합니다. 정렬이 끝난 뒤 반대 방향 회전이나 상쇄 가능한 Push·Swap을 제거하고, 두 Stack에 같은 방향으로 적용되는 연산은 `ss`·`rr`·`rrr`로 합친 뒤 출력합니다.
+![입력을 검증한 뒤 원소 수에 따라 5개 이하 전용 정렬과 두 Pivot 재귀 분할로 나누는 흐름](docs/images/sorting-flow.svg)
+
+입력 정수를 Stack A에 구성한 뒤 원소 수에 따라 정렬 경로를 나눕니다. 5개 이하는 전용 로직을 사용하고, 더 큰 입력은 두 Pivot으로 구간을 분류해 A와 B 사이를 이동하며 재귀적으로 처리합니다.
+
+### Command 후처리
+
+![Stack 연산을 Command List에 저장하고 인접 명령을 결합하거나 상쇄한 뒤 출력하는 흐름](docs/images/command-postprocessing.svg)
+
+정렬 연산은 즉시 출력하지 않고 `execute_cmds()`가 Command List에 저장합니다. 정렬이 끝난 뒤 반대 방향 회전이나 상쇄 가능한 Push·Swap을 제거하고, 두 Stack에 같은 방향으로 적용되는 연산은 `ss`·`rr`·`rrr`로 합친 뒤 출력합니다.
 
 ## 핵심 구현
 
