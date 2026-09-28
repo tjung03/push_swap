@@ -35,8 +35,8 @@
 <text x="577" y="339" font-size="14" fill="#263a54">A ↔ B 분류 · 회전 복구 · 상호 재귀</text>
 
 <line x1="770" y1="196" x2="770" y2="250" stroke="#64748b" stroke-width="2"/>
-<path d="M770 250 H295 V276" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
-<path d="M770 250 H705 V276" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M770 250 H295 V286" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M770 250 H705 V286" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
 
 <text x="80" y="404" font-size="14" fill="#475569">두 경로 모두 Stack 연산을 execute_cmds()로 수행하며 생성된 명령은 별도 Command List에 저장</text>
 </g></svg>
